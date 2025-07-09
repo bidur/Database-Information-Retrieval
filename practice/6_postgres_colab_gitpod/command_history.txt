@@ -1,0 +1,27 @@
+1  mdkir ./pg_files
+    2  docker run --name postgres_container -e POSTGRES_PASSWORD=12345 -e POSTGRES_USER=postgres -d -p 5432:5432 -v /workspace/empty/pg_files:/var/lib/postgresql/data postgres
+    3          psql -h localhost -p 5432 -U postgres 
+    4  docker exec -it postgres_container psql -U postgres
+    5  clear
+    6  docker exec -it postgres_container psql -U postgres
+
+
+
+    1  mdkir ./pg_files
+    2  docker run --name postgres_container -e POSTGRES_PASSWORD=12345 -e POSTGRES_USER=postgres -d -p 5432:5432 -v /workspace/empty/pg_files:/var/lib/postgresql/data postgres
+    3          psql -h localhost -p 5432 -U postgres 
+    4  docker exec -it postgres_container psql -U postgres
+    5  ls
+    6  \copy faa_airport_stats FROM 'flights-export.csv' DELIMITER ',' CSV HEADER;
+    7  psql -U postgres  -d flight -h localhost -c "\copy faa_airport_stats FROM 'flights-export.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',')"
+    8  sudo apt update
+    9          sudo apt install postgresql-client
+   10  sudo apt install postgresql-client
+   11  psql -U postgres  -d flight -h localhost -c "\copy faa_airport_stats FROM 'flights-export.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',')"
+   12  clear
+   13  docker ps
+   14  docker pull dpage/pgadmin4
+   15  docker  run  --name pgadmin_container   -p 8080:80 -e 'PGADMIN_DEFAULT_EMAIL=im.bidur@gmail.com' -e 'PGADMIN_DEFAULT_PASSWORD=12345' -d dpage/pgadmin4
+   16  docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' postgres_container
+   17  psql -U postgres  -d flight -h localhost -c "\copy faa_airport_stats FROM 'flights-export.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',')"
+   18  history
